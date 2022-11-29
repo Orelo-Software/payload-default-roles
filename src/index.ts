@@ -1,1 +1,1 @@
-export { defaultAccess } from './plugin';
+export { defaultExecutiveAccess as defaultAccess } from './plugin';
