@@ -1,0 +1,1 @@
+export { defaultAccess } from './plugin';

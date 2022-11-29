@@ -2,7 +2,7 @@ import type { Config, Plugin } from 'payload/config';
 
 const isExecutive = () => true;
 
-const defaultAccess =
+export const defaultAccess =
   (ignoredSlugs: string[]): Plugin =>
   (incomingConfig: Config): Config => {
     const config: Config = {
@@ -31,5 +31,3 @@ const defaultAccess =
 
     return config;
   };
-
-export default defaultAccess;
