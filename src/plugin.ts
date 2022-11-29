@@ -2,8 +2,8 @@ import type { Access, Config, Plugin } from 'payload/config';
 import { checkForRoleField } from './util/checks';
 
 const executiveRoles = ['admin', 'executive'];
-const isExecutive: Access<{ role: string }> = ({ data }) =>
-  executiveRoles.includes(data?.role ?? '');
+const isExecutive: Access<any, { role: string }> = ({ req }) =>
+  executiveRoles.includes(req?.user?.role ?? '');
 
 export const defaultExecutiveAccess =
   (ignoredSlugs: string[]): Plugin =>
