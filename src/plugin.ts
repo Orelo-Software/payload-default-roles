@@ -9,11 +9,12 @@ export const defaultExecutiveAccess =
   (ignoredSlugs: string[]): Plugin =>
   (incomingConfig: Config): Config => {
     checkForRoleField(incomingConfig);
+    const userCollectionSlug = incomingConfig.admin?.user ?? 'user';
 
     const config: Config = {
       ...incomingConfig,
       collections: incomingConfig.collections?.map(collection => {
-        if (collection.slug === 'user') return collection;
+        if (collection.slug === userCollectionSlug) return collection;
         if (ignoredSlugs.includes(collection.slug)) return collection;
         return {
           ...collection,
