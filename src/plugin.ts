@@ -10,7 +10,7 @@ interface Options {
 }
 
 export const defaultExecutiveAccess =
-  ({ ignoredSlugs }: Options): Plugin =>
+  ({ ignoredSlugs }: Options = {}): Plugin =>
   (incomingConfig: Config): Config => {
     checkForRoleField(incomingConfig);
     const userCollectionSlug = incomingConfig.admin?.user ?? 'user';
