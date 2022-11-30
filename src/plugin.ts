@@ -5,8 +5,12 @@ const executiveRoles = ['admin', 'executive'];
 const isExecutive: Access<any, { role: string }> = ({ req }) =>
   executiveRoles.includes(req?.user?.role ?? '');
 
+interface Options {
+  ignoredSlugs?: string[];
+}
+
 export const defaultExecutiveAccess =
-  (ignoredSlugs: string[]): Plugin =>
+  ({ ignoredSlugs }: Options): Plugin =>
   (incomingConfig: Config): Config => {
     checkForRoleField(incomingConfig);
     const userCollectionSlug = incomingConfig.admin?.user ?? 'user';
@@ -15,7 +19,7 @@ export const defaultExecutiveAccess =
       ...incomingConfig,
       collections: incomingConfig.collections?.map(collection => {
         if (collection.slug === userCollectionSlug) return collection;
-        if (ignoredSlugs.includes(collection.slug)) return collection;
+        if (ignoredSlugs?.includes(collection.slug)) return collection;
         return {
           ...collection,
           access: {
