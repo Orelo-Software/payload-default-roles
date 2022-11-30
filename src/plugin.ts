@@ -4,7 +4,11 @@ import { checkForRoleField } from './util/checks';
 const executiveRoles = ['admin', 'executive'];
 
 interface Options {
+  /** The slugs of the collections you want to ignore.
+   * @Defaults to the user collection under `admin.user`, or `"user"` if none */
   ignoredSlugs?: string[];
+  /** The default roles to give access to if no access is specified in the collection.
+   * @defaults `['admin', 'executive']` */
   defaultRoles?: string[];
 }
 
