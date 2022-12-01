@@ -15,6 +15,7 @@ Add default roles for access control on all collections.
 
 ## Example
 
+<!-- prettier-ignore -->
 ```ts
 // payload.config.ts
 import { buildConfig } from 'payload/config';
@@ -22,7 +23,10 @@ import { defaultAccess } from '@orelo/payload-default-roles';
 
 export default buildConfig({
   ...yourOtherConfigs,
-  plugins: [...yourOtherPlugins, defaultAccess()],
+  plugins: [
+    ...yourOtherPlugins,
+    defaultAccess(), // Pass nothing to use the default options
+  ],
 });
 ```
 
