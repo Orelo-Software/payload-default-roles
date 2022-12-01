@@ -5,8 +5,12 @@
   "keywords": [
     "payload"
   ],
+  "homepage": "https://github.com/orelo-software/payload-default-roles#readme",
+  "bugs": "https://github.com/orelo-software/payload-default-roles/issues",
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": "github:orelo-software/payload-default-roles",
   "scripts": {
     "build": "tsc",
     "lint": "eslint src",
