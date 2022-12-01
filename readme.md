@@ -18,7 +18,7 @@ Add default roles for access control on all collections.
 ```ts
 // payload.config.ts
 import { buildConfig } from 'payload/config';
-import { defaultRoles } from '@orelo/payload-default-roles';
+import { defaultAccess } from '@orelo/payload-default-roles';
 
 export default buildConfig({
   ...yourOtherConfigs,
