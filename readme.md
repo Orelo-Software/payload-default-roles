@@ -6,8 +6,7 @@ Add default roles for access control on all collections.
 
 - ### `ignoredSlugs: string[]` _Optional_
 
-  An array of the slugs from the collections this plugin should leave untouched.<br>
-  _Default: `"user"` or the collection under your config's `admin.user`_
+  An array of the slugs from the collections this plugin should leave untouched.
 
 - ### `defaultRoles: string[]` _Optional_
   An array of the roles this plugin should default access to.<br>
@@ -15,16 +14,13 @@ Add default roles for access control on all collections.
 
 ## Example
 
-<!-- prettier-ignore -->
 ```ts
 // payload.config.ts
 import { buildConfig } from 'payload/config';
 import { defaultAccess } from '@orelo/payload-default-roles';
 
 export default buildConfig({
-  ...yourOtherConfigs,
   plugins: [
-    ...yourOtherPlugins,
     defaultAccess(), // Pass nothing to use the default options
   ],
 });

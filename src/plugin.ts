@@ -5,7 +5,7 @@ const executiveRoles = ['admin', 'executive'];
 
 interface Options {
   /** The slugs of the collections you want to ignore.
-   * @Defaults to the user collection under `admin.user`, or `"user"` if none */
+   * @Defaults none */
   ignoredSlugs?: string[];
   /** The default roles to give access to if no access is specified in the collection.
    * @defaults `['admin', 'executive']` */
@@ -18,9 +18,7 @@ export const defaultExecutiveAccess =
     checkForRoleField(incomingConfig);
 
     const roles = defaultRoles || executiveRoles;
-    const slugsToIgnore = ignoredSlugs || [
-      incomingConfig.admin?.user || 'user',
-    ];
+    const slugsToIgnore = ignoredSlugs;
 
     const isExecutive: Access<any, { role: string }> = ({ req }) =>
       roles.includes(req?.user?.role ?? '');
