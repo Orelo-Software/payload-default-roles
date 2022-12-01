@@ -7,21 +7,21 @@ interface Options {
   /** The slugs of the collections you want to ignore.
    * @Defaults none */
   ignoredSlugs?: string[];
-  /** The default roles to give access to if no access is specified in the collection.
+  /** The roles to give default access to if no access is specified in the collection.
    * @defaults `['admin', 'executive']` */
-  defaultRoles?: string[];
+  roles?: string[];
 }
 
 export const defaultExecutiveAccess =
-  ({ ignoredSlugs, defaultRoles }: Options = {}): Plugin =>
+  ({ ignoredSlugs, roles }: Options = {}): Plugin =>
   (incomingConfig: Config): Config => {
     checkForRoleField(incomingConfig);
 
-    const roles = defaultRoles || executiveRoles;
+    const defaultRoles = roles || executiveRoles;
     const slugsToIgnore = ignoredSlugs;
 
     const isExecutive: Access<any, { role: string }> = ({ req }) =>
-      roles.includes(req?.user?.role ?? '');
+      defaultRoles.includes(req?.user?.role ?? '');
 
     const config: Config = {
       ...incomingConfig,
