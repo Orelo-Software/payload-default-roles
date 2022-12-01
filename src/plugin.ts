@@ -35,6 +35,7 @@ export const defaultExecutiveAccess =
             delete: isExecutive,
             read: isExecutive,
             readVersions: isExecutive,
+            unlock: isExecutive,
             ...collection.access,
           },
         };
