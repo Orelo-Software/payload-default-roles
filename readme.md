@@ -8,7 +8,7 @@ Add default roles for access control on all collections.
 
   An array of the slugs from the collections this plugin should leave untouched.
 
-- ### `defaultRoles: string[]` _Optional_
+- ### `roles: string[]` _Optional_
   An array of the roles this plugin should default access to.<br>
   _Default: `["admin", "executive"]`_
 
@@ -33,7 +33,7 @@ export default buildConfig({
   plugins: [
     defaultAccess({
       ignoredSlugs: ['cms-user', 'admin'],
-      defaultRoles: ['administrator', 'moderator'],
+      roles: ['administrator', 'moderator'],
     }),
   ],
 });
